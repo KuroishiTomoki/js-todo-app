@@ -8,28 +8,28 @@
     <script src="./app.js" defer></script>
   </head>
   <body>
-    <div>
+    <div class="input-area">
         <input placeholder="TODOを入力">
         <button>追加</button>
     </div>
-    <div>
-        <p>未完了のTODO</p>
+    <div class="incompleted-area">
+        <p class="title">未完了のTODO</p>
         <ul>
             <li>
-                <div>
-                    <p>TODOです</p>
+                <div class="list-row">
+                    <p class="todo-items">TODOです</p>
                     <button>完了</button>
                     <button>削除</button>
                 </div>    
             </li>
         </ul>
     </div>
-    <div>
-        <p>完了したTODO</p>
+    <div class="completed-area">
+        <p class="title">完了したTODO</p>
         <ul>
             <li>
-                <div>
-                    <p>TODOでした</p>
+                <div class="list-row">
+                    <p class="todo-items">環境のTODO</p>
                     <button>戻す</button>
                 </div>    
             </li>
