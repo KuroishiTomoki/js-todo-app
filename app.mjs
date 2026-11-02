@@ -31,11 +31,18 @@ const createIncompleteList = (todo) => {
 
         document.getElementById("completed-list").appendChild(moveTarget);
 
+        updateIncompleteCount();
+        updateCompleteCount();
+
+
         // 戻るボタンのイベントリスナー
         backButton.addEventListener("click", () =>{
             const todoText = backButton.previousElementSibling.innerText;
             createIncompleteList(todoText);
             backButton.closest("li").remove();
+
+            updateIncompleteCount();
+            updateCompleteCount();
         });
     });
 
@@ -49,8 +56,25 @@ const createIncompleteList = (todo) => {
     div.appendChild(completeButton);
     div.appendChild(deleteButton);
     
-    document.getElementById("incompleted-list").appendChild(li);   
+    document.getElementById("incompleted-list").appendChild(li);  
+    
+    updateIncompleteCount();
+    updateCompleteCount();
 };
+
+// 未完了のTodoの数を更新する関数
+const updateIncompleteCount = () => {
+    const count = document.getElementById("incompleted-list").childElementCount;
+    document.getElementById("incompleted-count").innerText = `残り: ${count}`;
+}
+
+
+// 完了したTodoの数を更新する関数
+const updateCompleteCount = () => {
+    const count = document.getElementById("completed-list").childElementCount;
+    document.getElementById("completed-count").innerText = `完了数: ${count}`;
+    console.log(`完了数: ${count}`);
+}
 
 const onClickAdd = () => {
     // テキストボックスの値を取得し、初期化する
